@@ -1,5 +1,4 @@
-* underline diagnostics
-- PROBLEM WITH UNDERCURL, ALACRITTY AND TMUX TERM
+* make telescope-file-browser and regular telescope work with hidden files
 * nvim-cmp
 * set up formatter
 * which key

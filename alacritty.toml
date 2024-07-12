@@ -1,7 +1,4 @@
-import = ["/Users/andrewzhang/.config/alacritty/themes/themes/catppuccin.toml"]
-
-[env]
-TERM = "xterm-256color"
+import = ["/Users/andrewzhang/.config/alacritty/themes/themes/catppuccin-mocha.toml"]
 
 [font]
 size = 14.0
