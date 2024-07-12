@@ -6,20 +6,28 @@ mason.setup {}
 mason_lspconfig.setup {
     ensure_installed = {
         "pyright",
-        "jsonls",
         "lua_ls",
-        "marksman",
-        "bashls",
+	    "rust_analyzer",
     }
 }
 
+-- lua
+lspconfig.lua_ls.setup {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+        },
+    },
+}
 -- python
 lspconfig.pyright.setup {}
--- markdown
-lspconfig.marksman.setup {}
--- lua
-lspconfig.lua_ls.setup {}
--- json
-lspconfig.jsonls.setup {}
+-- rust
+lspconfig.rust_analyzer.setup {}
 -- bash
 lspconfig.bashls.setup {}
+-- json
+lspconfig.jsonls.setup {}
+-- markdown
+lspconfig.marksman.setup {}

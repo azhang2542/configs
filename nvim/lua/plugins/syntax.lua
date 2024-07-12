@@ -3,6 +3,9 @@ local treesitter = {
     build = function()
         require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    config = function()
+        require("config.tree_sitter")
+    end,
 }
 
 local lsp = {
@@ -16,4 +19,21 @@ local lsp = {
     end,
 }
 
-return { treesitter, lsp }
+local formatter = {
+    "mhartington/formatter.nvim",
+    config = function()
+        require("config.formatter")
+    end,
+}
+
+-- formatter auto save
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+augroup("__formatter__", { clear = true })
+autocmd("BufWritePost", {
+	group = "__formatter__",
+	command = ":FormatWrite",
+})
+
+return { treesitter, lsp, formatter }
