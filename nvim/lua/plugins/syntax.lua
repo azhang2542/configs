@@ -27,21 +27,26 @@ local autopairs = {
     -- this is equalent to setup({}) function
 }
 
+local cmp = {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "saadparwaiz1/cmp_luasnip",
+        "L3MON4D3/LuaSnip",
+    },
+    config = function()
+        require("config.cmp")
+    end
+}
+
 local formatter = {
     "mhartington/formatter.nvim",
     config = function()
         require("config.formatter")
-    end,
-}
+    end, }
 
--- formatter auto save
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
-
-augroup("__formatter__", { clear = true })
-autocmd("BufWritePost", {
-	group = "__formatter__",
-	command = ":FormatWrite",
-})
-
-return { treesitter, lsp, formatter, autopairs }
+return { treesitter, lsp, formatter, autopairs, cmp }

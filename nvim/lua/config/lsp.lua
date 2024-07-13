@@ -1,6 +1,7 @@
 local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 mason.setup {
     PATH = "append"
@@ -25,12 +26,22 @@ lspconfig.lua_ls.setup {
     },
 }
 -- python
-lspconfig.pyright.setup {}
+lspconfig.pyright.setup {
+    capabilities = capabilities
+}
 -- rust
-lspconfig.rust_analyzer.setup {}
+lspconfig.rust_analyzer.setup {
+    capabilities = capabilities
+}
 -- bash
-lspconfig.bashls.setup {}
+lspconfig.bashls.setup {
+    capabilities = capabilities
+}
 -- json
-lspconfig.jsonls.setup {}
+lspconfig.jsonls.setup {
+    capabilities = capabilities
+}
 -- markdown
-lspconfig.marksman.setup {}
+lspconfig.marksman.setup {
+    capabilities = capabilities
+}

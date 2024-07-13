@@ -6,4 +6,5 @@ local catppuccin = {
         require("config.catppuccin")
     end,
 }
+
 return { catppuccin }

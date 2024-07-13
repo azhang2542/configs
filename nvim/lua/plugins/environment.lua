@@ -6,6 +6,14 @@ local nvim_dev_icons = {
     "nvim-tree/nvim-web-devicons"
 }
 
+local mini = {
+    "echasnovski/mini.nvim",
+    version = false,
+    config = function()
+        require("mini.icons").setup {}
+    end
+}
+
 local plenary = {
     "nvim-lua/plenary.nvim",
 }
@@ -15,17 +23,22 @@ local telescope = {
     tag = "0.1.8",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            -- this build did not work initially and
-            -- was forced to cd into .local/shared/nvim/lazy/telescope-fzf-native.nvim
-            -- and evoke make command
-            build = 'make',
-        },
     },
     config = function()
         require("config.telescope")
     end
+}
+
+local telecope_fzf_native = {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    -- this build did not work initially and
+    -- was forced to cd into .local/shared/nvim/lazy/telescope-fzf-native.nvim
+    -- and evoke make command
+    build = 'make',
+    dependencies = {
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim",
+    }
 }
 
 local telescope_file_browser = {
@@ -39,7 +52,16 @@ local telescope_file_browser = {
 local gitsigns = {
     "lewis6991/gitsigns.nvim",
     config = function()
-        require("gitsigns").setup()
+        require("gitsigns").setup {}
+    end
+}
+
+local indent_blankline = {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    config = function()
+        require("ibl").setup {}
     end
 }
 
@@ -69,12 +91,12 @@ local which_key = {
         },
     },
 }
--- keybinds
-local builtin = require("telescope.builtin")
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = "Telescope find files"})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = "Telescope grep"})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = "Telescope buffers"})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = "Telescope help"})
-vim.keymap.set('n', '<leader>fd', ":Telescope file_browser<CR>", {desc = "Telescope file browser"})
 
-return { vim_cool, plenary, telescope, telescope_file_browser, nvim_dev_icons, gitsigns, diffview, lualine, which_key }
+local notify = {
+    "rcarriga/nvim-notify",
+    config = function()
+        vim.notify = require("notify")
+    end,
+}
+
+return { vim_cool, plenary, telescope, telescope_file_browser, telecope_fzf_native, nvim_dev_icons, gitsigns, diffview, lualine, which_key, indent_blankline, notify, mini }
