@@ -2,7 +2,10 @@ local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-mason.setup {}
+mason.setup {
+    PATH = "append"
+}
+
 mason_lspconfig.setup {
     ensure_installed = {
         "pyright",

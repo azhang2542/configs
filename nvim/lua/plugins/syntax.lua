@@ -19,6 +19,14 @@ local lsp = {
     end,
 }
 
+local autopairs = {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+}
+
 local formatter = {
     "mhartington/formatter.nvim",
     config = function()
@@ -36,4 +44,4 @@ autocmd("BufWritePost", {
 	command = ":FormatWrite",
 })
 
-return { treesitter, lsp, formatter }
+return { treesitter, lsp, formatter, autopairs }
