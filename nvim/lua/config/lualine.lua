@@ -1,64 +1,84 @@
 local lualine = require("lualine")
 
-local function getLspName()
+local function getLsp()
 	local bufnr = vim.api.nvim_get_current_buf()
 	local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
-	local buf_ft = vim.bo.filetype
+
 	if next(buf_clients) == nil then
-		return "  No servers"
+		return ""
 	end
-	local buf_client_names = {}
+
+	local lsp_names = {}
 
 	for _, client in pairs(buf_clients) do
 		if client.name ~= "null-ls" then
-			table.insert(buf_client_names, client.name)
+			table.insert(lsp_names, client.name)
 		end
 	end
 
+	return "  " .. table.concat(lsp_names, ", ")
+end
+
+-- untested
+local function getLinter()
 	local lint_s, lint = pcall(require, "lint")
-	if lint_s then
-		for ft_k, ft_v in pairs(lint.linters_by_ft) do
-			if type(ft_v) == "table" then
-				for _, linter in ipairs(ft_v) do
-					if buf_ft == ft_k then
-						table.insert(buf_client_names, linter)
-					end
-				end
-			elseif type(ft_v) == "string" then
+
+	if not lint_s then
+		return ""
+	end
+
+	local buf_ft = vim.bo.filetype
+
+	local linter_names = {}
+	for ft_k, ft_v in pairs(lint.linters_by_ft) do
+		if type(ft_v) == "table" then
+			for _, linter in ipairs(ft_v) do
 				if buf_ft == ft_k then
-					table.insert(buf_client_names, ft_v)
+					table.insert(linter_names, linter)
 				end
 			end
-		end
-	end
-
-	local ok, conform = pcall(require, "conform")
-	local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
-	if ok then
-		for formatter in formatters:gmatch("%w+") do
-			if formatter then
-				table.insert(buf_client_names, formatter)
+		elseif type(ft_v) == "string" then
+			if buf_ft == ft_k then
+				table.insert(linter_names, ft_v)
 			end
 		end
 	end
 
-	local hash = {}
-	local unique_client_names = {}
+	return "  " .. table.concat(linter_names, ", ")
+end
 
-	for _, v in ipairs(buf_client_names) do
-		if not hash[v] then
-			unique_client_names[#unique_client_names + 1] = v
-			hash[v] = true
+local function getFormatter()
+	local conform_s, conform = pcall(require, "conform")
+	local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
+	if not conform_s or #formatters < 1 then
+		return ""
+	end
+
+	local formatter_names = {}
+	for formatter in formatters:gmatch("%w+") do
+		if formatter then
+			table.insert(formatter_names, formatter)
 		end
 	end
-	local language_servers = table.concat(unique_client_names, ", ")
 
-	return "  " .. language_servers
+	return "  " .. table.concat(formatter_names, ", ")
 end
 
 local lsp = {
 	function()
-		return getLspName()
+		return getLsp()
+	end,
+}
+
+local linter = {
+	function()
+		return getLinter()
+	end,
+}
+
+local formatter = {
+	function()
+		return getFormatter()
 	end,
 }
 
@@ -69,6 +89,8 @@ lualine.setup({
 	sections = {
 		lualine_x = {
 			lsp,
+			linter,
+			formatter,
 			"encoding",
 			"fileformat",
 			"filetype",

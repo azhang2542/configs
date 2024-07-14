@@ -27,6 +27,10 @@ local autopairs = {
 	-- this is equalent to setup({}) function
 }
 
+local illuminate = {
+    "RRethy/vim-illuminate",
+}
+
 local cmp = {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
@@ -96,4 +100,4 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, formatter, autopairs, cmp, trouble, conform }
+return { treesitter, lsp, formatter, autopairs, cmp, trouble, conform, illuminate }
