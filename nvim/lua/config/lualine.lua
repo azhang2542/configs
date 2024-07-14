@@ -49,19 +49,13 @@ end
 
 local function getFormatter()
 	local conform_s, conform = pcall(require, "conform")
-	local formatters = table.concat(conform.list_formatters_for_buffer(), " ")
+	local formatters = table.concat(conform.list_formatters_for_buffer(), ", ")
+
 	if not conform_s or #formatters < 1 then
 		return ""
 	end
 
-	local formatter_names = {}
-	for formatter in formatters:gmatch("%w+") do
-		if formatter then
-			table.insert(formatter_names, formatter)
-		end
-	end
-
-	return "  " .. table.concat(formatter_names, ", ")
+	return "  " .. formatters
 end
 
 local lsp = {

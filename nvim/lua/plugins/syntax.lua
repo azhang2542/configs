@@ -28,7 +28,15 @@ local autopairs = {
 }
 
 local illuminate = {
-    "RRethy/vim-illuminate",
+	"RRethy/vim-illuminate",
+	config = function()
+		require("illuminate").configure({
+			providers = {
+				"lsp",
+				"treesitter",
+			},
+		})
+	end,
 }
 
 local cmp = {
@@ -47,17 +55,12 @@ local cmp = {
 	end,
 }
 
-local formatter = {
-	"mhartington/formatter.nvim",
-	config = function()
-		require("config.formatter")
-	end,
-}
-
 local conform = {
-    "stevearc/conform.nvim",
-    -- event = {"BufReadPre"},
-    opts = {},
+	"stevearc/conform.nvim",
+	opts = {},
+	config = function()
+		require("config.conform")
+	end,
 }
 
 local trouble = {
@@ -100,4 +103,4 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, formatter, autopairs, cmp, trouble, conform, illuminate }
+return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate }
