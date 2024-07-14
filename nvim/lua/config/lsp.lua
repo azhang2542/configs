@@ -15,6 +15,20 @@ mason_lspconfig.setup({
 	},
 })
 
+-- in_lay on_attach
+
+local in_lay = function(client, bufnr)
+	if client.server_capabilities.inlayHintProvider then
+		vim.lsp.inlay_hint.enable(true, { bufnr })
+		-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+		-- 	buffer = bufnr,
+		-- 	callback = function()
+		-- 		vim.lsp.inlay_hint.enable(true, { bufnr })
+		-- 	end,
+		-- })
+	end
+end
+
 -- lua
 lspconfig.lua_ls.setup({
 	settings = {
@@ -24,6 +38,7 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
+	capabilities = capabilities,
 })
 -- python
 lspconfig.pyright.setup({
@@ -32,6 +47,7 @@ lspconfig.pyright.setup({
 -- rust
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
+	on_attach = in_lay,
 })
 -- bash
 lspconfig.bashls.setup({
