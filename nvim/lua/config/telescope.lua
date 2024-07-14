@@ -1,7 +1,18 @@
 local telescope = require("telescope")
+local actions = require("telescope.actions")
 local fb_actions = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
+	defaults = {
+		mappings = {
+			["n"] = {
+				["t"] = { actions.select_tab, type = "action" },
+                -- binding it as '"' does not work ):
+				["v"] = { actions.select_vertical, type = "action" },
+				["%"] = { actions.select_horizontal, type = "action" },
+			},
+		},
+	},
 	pickers = {
 		find_files = {
 			hidden = true,

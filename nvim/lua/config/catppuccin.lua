@@ -1,5 +1,18 @@
 local catppuccin = require("catppuccin")
 
-catppuccin.setup({})
+catppuccin.setup({
+	integrations = {
+		gitsigns = true,
+		neotree = true,
+		native_lsp = {
+			underlines = {
+				errors = { "undercurl" },
+				hints = { "undercurl" },
+				warnings = { "undercurl" },
+				information = { "undercurl" },
+			},
+		},
+	},
+})
 
 vim.cmd.colorscheme("catppuccin")

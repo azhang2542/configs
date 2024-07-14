@@ -2,6 +2,24 @@ local vim_cool = {
 	"romainl/vim-cool",
 }
 
+local tmux_navigator = {
+	"christoomey/vim-tmux-navigator",
+	cmd = {
+		"TmuxNavigateLeft",
+		"TmuxNavigateDown",
+		"TmuxNavigateUp",
+		"TmuxNavigateRight",
+		"TmuxNavigatePrevious",
+	},
+	keys = {
+		{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+		{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+		{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+		{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+		{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+	},
+}
+
 local nvim_dev_icons = {
 	"nvim-tree/nvim-web-devicons",
 }
@@ -99,12 +117,49 @@ local notify = {
 	end,
 }
 
+local neo_tree = {
+	"nvim-neo-tree/neo-tree.nvim",
+	branch = "v3.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		"MunifTanjim/nui.nvim",
+		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+	},
+	keys = {
+		{
+			"<leader>t",
+			":Neotree toggle<CR>",
+			desc = "neo-tree toggle",
+			noremap = true,
+			silent = true,
+		},
+	},
+	opts = {
+		filesystem = {
+			filtered_items = {
+				visible = true,
+				show_hidden_count = true,
+				hide_dotfiles = false,
+				hide_gitignored = true,
+				hide_by_name = {
+					-- '.git',
+					-- '.DS_Store',
+					-- 'thumbs.db',
+				},
+				never_show = {},
+			},
+		},
+	},
+}
+
 return {
 	vim_cool,
 	plenary,
 	telescope,
 	telescope_file_browser,
 	telecope_fzf_native,
+	tmux_navigator,
 	nvim_dev_icons,
 	gitsigns,
 	diffview,
@@ -113,4 +168,5 @@ return {
 	indent_blankline,
 	notify,
 	mini,
+	neo_tree,
 }
