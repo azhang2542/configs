@@ -7,10 +7,14 @@ telescope.setup({
 		mappings = {
 			["n"] = {
 				["t"] = { actions.select_tab, type = "action" },
-                -- binding it as '"' does not work ):
+				-- binding it as '"' does not work ):
 				["v"] = { actions.select_vertical, type = "action" },
 				["%"] = { actions.select_horizontal, type = "action" },
 			},
+		},
+		file_ignore_patterns = {
+			-- anything with .git/
+			".*%.git/.*",
 		},
 	},
 	pickers = {
