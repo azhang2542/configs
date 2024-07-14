@@ -50,6 +50,12 @@ local formatter = {
 	end,
 }
 
+local conform = {
+    "stevearc/conform.nvim",
+    -- event = {"BufReadPre"},
+    opts = {},
+}
+
 local trouble = {
 	{
 		"folke/trouble.nvim",
@@ -90,4 +96,4 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, formatter, autopairs, cmp, trouble }
+return { treesitter, lsp, formatter, autopairs, cmp, trouble, conform }

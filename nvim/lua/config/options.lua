@@ -21,6 +21,8 @@ vim.keymap.set("n", "<leader>&", ":tabc<CR>", { desc = "close tab", noremap = tr
 vim.keymap.set("n", "<leader>%", ":sp<CR>", { desc = "split horizontally", noremap = true })
 vim.keymap.set("n", '<leader>"', ":vs<CR>", { desc = "split vertically", noremap = true })
 
+vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { desc = "lazy.nvim", noremap = true, silent = true})
+
 -- options
 vim.opt.number = true
 vim.opt.relativenumber = true
