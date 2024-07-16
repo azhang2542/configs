@@ -79,8 +79,17 @@ local indent_blankline = {
 	main = "ibl",
 	opts = {},
 	config = function()
-		require("ibl").setup({})
+		require("ibl").setup({
+			scope = {
+				show_start = false,
+				show_end = false,
+			},
+		})
 	end,
+}
+
+local fugitive = {
+	"tpope/vim-fugitive",
 }
 
 local diffview = {
@@ -113,7 +122,9 @@ local which_key = {
 local notify = {
 	"rcarriga/nvim-notify",
 	config = function()
-		vim.notify = require("notify")
+		local notify = require("notify")
+		vim.notify = notify
+		vim.keymap.set("n", "<leader>N", notify.dismiss, { desc = "notify dismiss" })
 	end,
 }
 
@@ -169,4 +180,5 @@ return {
 	notify,
 	mini,
 	neo_tree,
+	fugitive,
 }
