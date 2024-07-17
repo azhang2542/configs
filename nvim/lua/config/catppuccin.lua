@@ -2,6 +2,7 @@ local catppuccin = require("catppuccin")
 
 catppuccin.setup({
 	integrations = {
+		alpha = true,
 		gitsigns = true,
 		neotree = true,
 		native_lsp = {

@@ -170,6 +170,14 @@ local neo_tree = {
 	},
 }
 
+local alpha = {
+	"goolord/alpha-nvim",
+	event = "VimEnter",
+	config = function()
+		require("config.alpha")
+	end,
+}
+
 return {
 	vim_cool,
 	plenary,
@@ -187,4 +195,5 @@ return {
 	mini,
 	neo_tree,
 	fugitive,
+	alpha,
 }
