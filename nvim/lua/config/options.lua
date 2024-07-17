@@ -21,6 +21,31 @@ vim.keymap.set("n", "<leader>&", ":tabc<CR>", { desc = "close tab", noremap = tr
 vim.keymap.set("n", "<leader>%", ":sp<CR>", { desc = "split horizontally", noremap = true })
 vim.keymap.set("n", '<leader>"', ":vs<CR>", { desc = "split vertically", noremap = true })
 
+vim.keymap.set(
+	"n",
+	"<",
+	":vertical resize +5<CR>",
+	{ desc = "window bigger vertically", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	">",
+	":vertical resize -5<CR>",
+	{ desc = "window smaller vertically", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"+",
+	":horizontal resize +2<CR>",
+	{ desc = "window bigger horizontally", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"_",
+	":horizontal resize -2<CR>",
+	{ desc = "window bigger horizontally", noremap = true, silent = true }
+)
+
 vim.keymap.set("n", "<leader>L", ":Lazy<CR>", { desc = "lazy.nvim", noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>b", ":b#<CR>", { desc = "go to pervious buffer", noremap = true, silent = true })
