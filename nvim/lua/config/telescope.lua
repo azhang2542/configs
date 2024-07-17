@@ -17,6 +17,7 @@ telescope.setup({
 		file_ignore_patterns = {
 			-- anything with .git/
 			".*%.git/.*",
+			".git",
 		},
 	},
 	pickers = {

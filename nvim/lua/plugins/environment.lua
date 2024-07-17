@@ -160,11 +160,11 @@ local neo_tree = {
 				hide_dotfiles = false,
 				hide_gitignored = true,
 				hide_by_name = {
-					-- '.git',
-					-- '.DS_Store',
-					-- 'thumbs.db',
+					".DS_Store",
 				},
-				never_show = {},
+				never_show = {
+					".git",
+				},
 			},
 		},
 	},
