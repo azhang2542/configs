@@ -13,15 +13,13 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {}
-
 local v = vim.version()
 local version = v.major .. "." .. v.minor .. "." .. v.patch
 -- local stats = require("lazy").stats()
 -- local plugins_count = stats.loaded .. "/" .. stats.count
--- print(vim.inspect(stats))
 -- local ms = math.floor(stats.startuptime + 0.5)
-local time = vim.fn.strftime("%H:%M:%S")
-local date = vim.fn.strftime("%d.%m.%Y")
+local time = vim.fn.strftime("%I:%M%p")
+local date = vim.fn.strftime("%m.%d.%Y")
 
 local line1 = " Version " .. version
 local line2 = "󰃭 " .. date
@@ -39,6 +37,9 @@ dashboard.section.footer.val = {
 	line3Padded,
 }
 
+dashboard.section.header.opts.hl = "AlphaHeader"
+dashboard.section.buttons.opts.hl = "AlphaButtons"
+dashboard.section.footer.opts.hl = "AlphaButtons"
 dashboard.section.header.opts.hl = "AlphaHeader"
 dashboard.section.buttons.opts.hl = "AlphaButtons"
 dashboard.section.footer.opts.hl = "AlphaButtons"
