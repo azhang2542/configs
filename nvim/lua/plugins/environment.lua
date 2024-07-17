@@ -29,6 +29,12 @@ local mini = {
 	version = false,
 	config = function()
 		require("mini.icons").setup({})
+		vim.keymap.set(
+			"n",
+			"<leader>z",
+			require("mini.misc").zoom,
+			{ desc = "zoom current buffer", noremap = true, silent = true }
+		)
 	end,
 }
 
