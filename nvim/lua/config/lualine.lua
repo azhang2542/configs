@@ -49,13 +49,26 @@ end
 
 local function getFormatter()
 	local conform_s, conform = pcall(require, "conform")
-	local formatters = table.concat(conform.list_formatters_for_buffer(), ", ")
 
-	if not conform_s or #formatters < 1 then
+	if not conform_s then
 		return ""
 	end
 
-	return "  " .. formatters
+	local bufnr = vim.api.nvim_get_current_buf()
+	local formatters = conform.list_formatters(bufnr)
+
+	local available_formatters = {}
+	for _, formatter in ipairs(formatters) do
+		if formatter["available"] == true then
+			table.insert(available_formatters, formatter["name"])
+		end
+	end
+
+	if #available_formatters == 0 then
+		return ""
+	end
+
+	return "  " .. table.concat(available_formatters, ", ")
 end
 
 local lsp = {
