@@ -63,6 +63,15 @@ local conform = {
 	end,
 }
 
+local surround = {
+	"kylechui/nvim-surround",
+	version = "*",
+	event = "VeryLazy",
+	config = function()
+		require("nvim-surround").setup({})
+	end,
+}
+
 local trouble = {
 	{
 		"folke/trouble.nvim",
@@ -103,4 +112,4 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate }
+return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround }
