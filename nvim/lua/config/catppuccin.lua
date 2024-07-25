@@ -1,6 +1,7 @@
 local catppuccin = require("catppuccin")
 
 catppuccin.setup({
+	no_italic = true,
 	integrations = {
 		alpha = true,
 		gitsigns = true,
