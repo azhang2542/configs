@@ -13,8 +13,8 @@ vim.keymap.set("n", "<leader>8", "8gt", { desc = "go to tab 8", noremap = true, 
 vim.keymap.set("n", "<leader>9", "9gt", { desc = "go to tab 9", noremap = true, silent = true })
 vim.keymap.set("n", "<leader>0", ":tablast<CR>", { desc = "go to last tab", noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>h", ":tabprevious<CR>", { desc = "next tab", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>l", ":tabnext<CR>", { desc = "previous tab", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", ":tabprevious<CR>", { desc = "next tab", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", ":tabnext<CR>", { desc = "previous tab", noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>&", ":tabc<CR>", { desc = "close tab", noremap = true })
 
