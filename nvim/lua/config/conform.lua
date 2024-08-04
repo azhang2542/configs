@@ -9,6 +9,10 @@ conform.setup({
 		lua = { "stylua" },
 		python = { "isort", "black" },
 		json = { "jq" },
+		javascript = { "prettier" },
+		typescript = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
 		["_"] = { "trim_whitespace" },
 	},
 })

@@ -16,16 +16,9 @@ mason_lspconfig.setup({
 })
 
 -- in_lay on_attach
-
 local in_lay = function(client, bufnr)
 	if client.server_capabilities.inlayHintProvider then
 		vim.lsp.inlay_hint.enable(true, { bufnr })
-		-- vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-		-- 	buffer = bufnr,
-		-- 	callback = function()
-		-- 		vim.lsp.inlay_hint.enable(true, { bufnr })
-		-- 	end,
-		-- })
 	end
 end
 
@@ -49,15 +42,15 @@ lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
 	on_attach = in_lay,
 })
--- bash
-lspconfig.bashls.setup({
+-- html
+lspconfig.html.setup({
 	capabilities = capabilities,
 })
--- json
-lspconfig.jsonls.setup({
+-- js
+lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
--- markdown
-lspconfig.marksman.setup({
+-- css
+lspconfig.cssls.setup({
 	capabilities = capabilities,
 })

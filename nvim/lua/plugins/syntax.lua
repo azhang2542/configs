@@ -27,6 +27,11 @@ local autopairs = {
 	-- this is equalent to setup({}) function
 }
 
+local ts_autotag = {
+	"windwp/nvim-ts-autotag",
+	config = true,
+}
+
 local illuminate = {
 	"RRethy/vim-illuminate",
 	config = function()
@@ -112,4 +117,4 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround }
+return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround, ts_autotag }
