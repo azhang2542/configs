@@ -117,4 +117,13 @@ local trouble = {
 	},
 }
 
-return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround, ts_autotag }
+local colorizer = {
+	"brenoprata10/nvim-highlight-colors",
+	config = function()
+		require("nvim-highlight-colors").setup({
+			enable_short_hex = false,
+		})
+	end,
+}
+
+return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround, ts_autotag, colorizer }
