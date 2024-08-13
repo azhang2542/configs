@@ -153,6 +153,10 @@ local undotree = {
 	end,
 }
 
+local vim_sleuth = {
+	"tpope/vim-sleuth",
+}
+
 return {
 	treesitter,
 	lsp,
@@ -166,4 +170,5 @@ return {
 	colorizer,
 	undotree,
 	lsp_signature,
+	vim_sleuth,
 }
