@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
 cmp.setup({
 	preselect = cmp.PreselectMode.None,
@@ -64,3 +65,5 @@ cmp.setup.cmdline(":", {
 	},
 	-- matching = { disallow_symbol_nonprefix_matching = false }
 })
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
