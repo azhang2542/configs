@@ -71,6 +71,7 @@ vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
 
+-- symbols for diagnostics
 vim.opt.signcolumn = "yes:1"
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
@@ -78,6 +79,7 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
+-- disable autocomments
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()
@@ -85,6 +87,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- shows diagnostics on cursor hover
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	pattern = "*",
 	callback = function()
