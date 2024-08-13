@@ -126,4 +126,23 @@ local colorizer = {
 	end,
 }
 
-return { treesitter, lsp, autopairs, cmp, trouble, conform, illuminate, surround, ts_autotag, colorizer }
+local undotree = {
+	"mbbill/undotree",
+	config = function()
+		vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "UndotreeToggle", noremap = true })
+	end,
+}
+
+return {
+	treesitter,
+	lsp,
+	autopairs,
+	cmp,
+	trouble,
+	conform,
+	illuminate,
+	surround,
+	ts_autotag,
+	colorizer,
+	undotree,
+}
