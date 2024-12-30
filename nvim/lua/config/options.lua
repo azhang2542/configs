@@ -71,6 +71,8 @@ vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
 
+vim.opt.pumheight = 10
+
 -- symbols for diagnostics
 vim.opt.signcolumn = "yes:1"
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
