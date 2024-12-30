@@ -131,6 +131,8 @@ local lsp_signature = {
 	event = "VeryLazy",
 	opts = {
 		hint_enable = false,
+		-- shows signature popup below cmp
+		zindex = 50,
 	},
 	config = function(_, opts)
 		vim.api.nvim_create_autocmd("LspAttach", {
