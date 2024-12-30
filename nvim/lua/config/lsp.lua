@@ -47,7 +47,7 @@ lspconfig.html.setup({
 	capabilities = capabilities,
 })
 -- js
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
 	capabilities = capabilities,
 })
 -- css
