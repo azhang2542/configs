@@ -9,9 +9,9 @@ mason.setup({
 
 mason_lspconfig.setup({
 	ensure_installed = {
-		"pyright",
-		"lua_ls",
-		"rust_analyzer",
+		-- "pyright",
+		-- "lua_ls",
+		-- "rust_analyzer",
 	},
 })
 
