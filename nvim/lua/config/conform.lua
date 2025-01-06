@@ -17,6 +17,11 @@ conform.setup({
 		cpp = { "clang_format" },
 		["_"] = { "trim_whitespace" },
 	},
+	formatters = {
+		clang_format = {
+			args = { "--style={IndentWidth: 4}" },
+		},
+	},
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
