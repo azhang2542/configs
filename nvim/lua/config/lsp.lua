@@ -54,3 +54,7 @@ lspconfig.ts_ls.setup({
 lspconfig.cssls.setup({
 	capabilities = capabilities,
 })
+-- c/c++
+lspconfig.clangd.setup({
+	capabilities = capabilities,
+})

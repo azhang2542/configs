@@ -13,6 +13,8 @@ conform.setup({
 		typescript = { "prettier" },
 		html = { "prettier" },
 		css = { "prettier" },
+		c = { "clang_format" },
+		cpp = { "clang_format" },
 		["_"] = { "trim_whitespace" },
 	},
 })
