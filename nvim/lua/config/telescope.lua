@@ -32,8 +32,8 @@ telescope.setup({
 		mappings = {
 			["n"] = {
 				["t"] = { actions.select_tab, type = "action" },
-				['"'] = { actions.select_vertical, type = "action" },
-				["%"] = { actions.select_horizontal, type = "action" },
+				["%"] = { actions.select_vertical, type = "action" },
+				['"'] = { actions.select_horizontal, type = "action" },
 			},
 		},
 		file_ignore_patterns = {

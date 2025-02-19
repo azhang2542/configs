@@ -18,8 +18,8 @@ vim.keymap.set("n", "<leader>h", ":tabnext<CR>", { desc = "previous tab", norema
 
 vim.keymap.set("n", "<leader>&", ":tabc<CR>", { desc = "close tab", noremap = true })
 
-vim.keymap.set("n", "<leader>%", ":sp<CR>", { desc = "split horizontally", noremap = true })
-vim.keymap.set("n", '<leader>"', ":vs<CR>", { desc = "split vertically", noremap = true })
+vim.keymap.set("n", '<leader>"', ":sp<CR>", { desc = "split horizontally", noremap = true })
+vim.keymap.set("n", "<leader>%", ":vs<CR>", { desc = "split vertically", noremap = true })
 
 vim.keymap.set(
 	"n",
