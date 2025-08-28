@@ -15,6 +15,7 @@ conform.setup({
 		css = { "prettier" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },
+		tex = { "latexindent" },
 		["_"] = { "trim_whitespace" },
 	},
 	formatters = {

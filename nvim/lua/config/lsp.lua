@@ -66,3 +66,7 @@ lspconfig.jsonls.setup({
 lspconfig.jdtls.setup({
 	capabilities = capabilities,
 })
+-- latex
+lspconfig.texlab.setup({
+	capabilities = capabilities,
+})
