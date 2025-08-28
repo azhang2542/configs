@@ -92,6 +92,7 @@ local formatter = {
 lualine.setup({
 	options = {
 		theme = "catppuccin",
+		globalstatus = true,
 	},
 	sections = {
 		lualine_x = {
@@ -102,5 +103,24 @@ lualine.setup({
 			"fileformat",
 			"filetype",
 		},
+	},
+	-- winbar = {
+	-- 	lualine_a = {},
+	-- 	lualine_b = {},
+	-- 	lualine_c = {},
+	-- 	lualine_x = {},
+	-- 	lualine_y = {},
+	-- 	lualine_z = {},
+	-- },
+
+	inactive_winbar = {
+		-- lualine_a = {},
+		-- lualine_b = {},
+		-- lualine_c = {},
+		-- lualine_x = {},
+		-- lualine_y = { "filename" },
+		-- I want to change bg color of winbar to be transparent
+		-- I also need to disable winbar for things like neotree and etc.
+		-- lualine_z = {},
 	},
 })
