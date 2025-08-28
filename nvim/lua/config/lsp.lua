@@ -58,3 +58,11 @@ lspconfig.cssls.setup({
 lspconfig.clangd.setup({
 	capabilities = capabilities,
 })
+-- json
+lspconfig.jsonls.setup({
+	capabilities = capabilities,
+})
+-- java
+lspconfig.jdtls.setup({
+	capabilities = capabilities,
+})
