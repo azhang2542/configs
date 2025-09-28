@@ -74,12 +74,21 @@ vim.opt.termguicolors = true
 vim.opt.pumheight = 10
 
 -- symbols for diagnostics
-vim.opt.signcolumn = "yes:1"
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+vim.diagnostic.config({
+	signs = {
+		active = true, -- Enable signs
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+			[vim.diagnostic.severity.WARN] = "󰀪 ",
+			[vim.diagnostic.severity.HINT] = "󰌶 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		},
+	},
+	virtual_text = true, -- Show inline virtual text
+	underline = true, -- Underline problematic code
+	update_in_insert = false,
+	severity_sort = true,
+})
 
 -- disable autocomments
 vim.api.nvim_create_autocmd("FileType", {
