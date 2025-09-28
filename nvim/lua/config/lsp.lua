@@ -21,6 +21,18 @@ local in_lay = function(client, bufnr)
 	end
 end
 
+-- Lua
+vim.lsp.config("lua_ls", {
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+	capabilities = capabilities,
+})
+
 -- Python
 vim.lsp.config("pyright", {
 	capabilities = capabilities,
