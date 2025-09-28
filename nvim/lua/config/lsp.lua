@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -22,51 +21,62 @@ local in_lay = function(client, bufnr)
 	end
 end
 
--- lua
-lspconfig.lua_ls.setup({
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
+-- Python
+vim.lsp.config("pyright", {
 	capabilities = capabilities,
 })
--- python
-lspconfig.pyright.setup({
-	capabilities = capabilities,
-})
--- rust
-lspconfig.rust_analyzer.setup({
+
+-- Rust
+vim.lsp.config("rust_analyzer", {
 	capabilities = capabilities,
 	on_attach = in_lay,
 })
--- html
-lspconfig.html.setup({
+
+-- HTML
+vim.lsp.config("html", {
 	capabilities = capabilities,
 })
--- js
-lspconfig.ts_ls.setup({
+
+-- TypeScript/JavaScript
+vim.lsp.config("tsserver", {
 	capabilities = capabilities,
 })
--- css
-lspconfig.cssls.setup({
+
+-- CSS
+vim.lsp.config("cssls", {
 	capabilities = capabilities,
 })
--- c/c++
-lspconfig.clangd.setup({
+
+-- C/C++
+vim.lsp.config("clangd", {
 	capabilities = capabilities,
 })
--- json
-lspconfig.jsonls.setup({
+
+-- JSON
+vim.lsp.config("jsonls", {
 	capabilities = capabilities,
 })
--- java
-lspconfig.jdtls.setup({
+
+-- Java
+vim.lsp.config("jdtls", {
 	capabilities = capabilities,
 })
--- latex
-lspconfig.texlab.setup({
+
+-- LaTeX
+vim.lsp.config("texlab", {
 	capabilities = capabilities,
+})
+
+-- Enable all configured language servers at once
+vim.lsp.enable({
+	"lua_ls",
+	"pyright",
+	"rust_analyzer",
+	"html",
+	"tsserver",
+	"cssls",
+	"clangd",
+	"jsonls",
+	"jdtls",
+	"texlab",
 })
